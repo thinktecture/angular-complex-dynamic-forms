@@ -3,5 +3,128 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "forms-test": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/forms-test",
+      "sourceRoot": "projects/forms-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/forms-test",
+            "index": "projects/forms-test/src/index.html",
+            "main": "projects/forms-test/src/main.ts",
+            "polyfills": "projects/forms-test/src/polyfills.ts",
+            "tsConfig": "projects/forms-test/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/forms-test/src/favicon.ico",
+              "projects/forms-test/src/assets"
+            ],
+            "styles": [
+              "projects/forms-test/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/forms-test/src/environments/environment.ts",
+                  "with": "projects/forms-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "forms-test:build:production"
+            },
+            "development": {
+              "browserTarget": "forms-test:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "forms-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forms-test/src/test.ts",
+            "polyfills": "projects/forms-test/src/polyfills.ts",
+            "tsConfig": "projects/forms-test/tsconfig.spec.json",
+            "karmaConfig": "projects/forms-test/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/forms-test/src/favicon.ico",
+              "projects/forms-test/src/assets"
+            ],
+            "styles": [
+              "projects/forms-test/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "forms-test"
 }
