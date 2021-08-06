@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <div class="myCard">
+    <div class="header">
+      <h3>Step 3</h3>
+      <h4>Provide your address information</h4>
+    </div>
+
+    <fieldset class="field">
+      <label>Street</label>
+      <input type="text" placeholder="Cherry Street No.5" autocomplete="disabled" formControlName="extendInput" />
+    </fieldset>
+    <fieldset class="field">
+      <label>City</label>
+      <input type="text" placeholder="Oberhausen" autocomplete="disabled" formControlName="otherExtend" />
+    </fieldset>
+  </div>
+  <div class="actions">
+    <a class="button gray" routerLink="../step2">back</a>
+    <button class="button green" (click)="submit()" [disabled]="parent?.valid">Submit</button>
+  </div>
+</form>

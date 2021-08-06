@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  gap: 1rem
+}
+
+.steps {
+  @apply flex;
+  margin-top: -20px;
+}
+
+pre {
+  margin-top: 6rem;
+}

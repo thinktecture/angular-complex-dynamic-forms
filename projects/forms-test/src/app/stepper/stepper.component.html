@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="steps">
+    <a routerLink="./step1" class="step" routerLinkActive="activeStep">1</a>
+    <a routerLink="./step2" class="step" routerLinkActive="activeStep">2</a>
+    <a routerLink="./step3" class="step" routerLinkActive="activeStep">3</a>
+  </div>
+
+  <!-- this submit does not work -->
+  <form [formGroup]="form" (submit)="submit()">
+    <router-outlet></router-outlet>
+  </form>
+</div>
+
+<hr>
+<pre>
+  Valid: {{ form.valid }}
+
+
+  Value:
+  {{ form.value | json }}
+
+
+
+  Form Errors
+  {{ form.errors | json }}
+
+
+
+  All errors (recursively)
+  {{ errors | json }}
+</pre>

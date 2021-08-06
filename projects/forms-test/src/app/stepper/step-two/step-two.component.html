@@ -1,0 +1,28 @@
+<div *ngIf="form" [formGroup]="form">
+  <div class="myCard" formGroupName="stepTwo">
+    <div class="header">
+      <h3>Step 2</h3>
+      <h4>Information about your spouse</h4>
+    </div>
+    <tt-person-details [formGroup]="$any(form?.get('stepTwo.spouse'))"></tt-person-details>
+    <div *ngIf="form?.errors?.spouseName">{{form?.errors?.spouseName}}</div>
+  </div>
+
+  <div class="myCard mt-4" formGroupName="stepTwo">
+    <div class="header">
+      <h4>Information about your children</h4>
+    </div>
+    <ng-container *ngFor="let c of childrenArray; index as i">
+      <fieldset>
+        <label>{{i + 1}}. Child Full Name</label>
+        <input name="fullName" [formControl]="c" type="text" />
+      </fieldset>
+    </ng-container>
+    <button type="button" (click)="addChild()">+</button>
+  </div>
+</div>
+
+<div class="actions">
+  <a class="button gray" routerLink="../step1">back</a>
+  <a class="button blue" routerLink="../step3">next</a>
+</div>

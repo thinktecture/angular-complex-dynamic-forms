@@ -1,0 +1,12 @@
+<div class="myCard">
+  <div class="header">
+    <h3>Step 1</h3>
+    <h4>Provide your information</h4>
+  </div>
+  <tt-person-details *ngIf="form" [formGroup]="form"></tt-person-details>
+</div>
+
+<div class="actions">
+  <div></div>
+  <a class="button blue" routerLink="../step2">next</a>
+</div>
