@@ -32,7 +32,7 @@
           "strict": true
         }
       },
-      "root": "projects/forms-test",
+      "root": "",
       "sourceRoot": "projects/forms-test/src",
       "prefix": "app",
       "architect": {
