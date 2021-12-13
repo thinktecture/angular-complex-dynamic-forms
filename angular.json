@@ -50,7 +50,6 @@
               "projects/forms-test/src/assets"
             ],
             "styles": [
-              "node_modules/igniteui-angular/styles/igniteui-angular.css",
               "projects/forms-test/src/styles.scss"
             ],
             "scripts": [ "./node_modules/hammerjs/hammer.min.js"]
