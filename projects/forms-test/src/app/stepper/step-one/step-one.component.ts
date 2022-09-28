@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlContainer, FormGroup } from '@angular/forms';
+import { ControlContainer, UntypedFormGroup } from '@angular/forms';
 import { CanDeactivateStepper } from '../../form-step.guard';
 
 @Component({
@@ -8,12 +8,12 @@ import { CanDeactivateStepper } from '../../form-step.guard';
     styleUrls: ['./step-one.component.scss'],
 })
 export class StepOneComponent implements OnInit, CanDeactivateStepper {
-    form?: FormGroup;
+    form?: UntypedFormGroup;
 
     constructor(private readonly controlContainer: ControlContainer) {}
 
     ngOnInit(): void {
-        this.form = (this.controlContainer.control as FormGroup)?.controls
-            ?.stepOne as FormGroup;
+        this.form = (this.controlContainer.control as UntypedFormGroup)?.controls
+            ?.stepOne as UntypedFormGroup;
     }
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { ControlContainer, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+    ControlContainer,
+    UntypedFormBuilder,
+    UntypedFormGroup,
+    Validators,
+} from '@angular/forms';
 import { CanDeactivateStepper } from '../../form-step.guard';
 import { StepperComponent } from '../stepper.component';
 
@@ -13,16 +18,16 @@ export class StepThreeComponent implements OnInit, CanDeactivateStepper {
         extendInput: [undefined, [Validators.required]],
         otherExtend: undefined,
     });
-    parent?: FormGroup;
+    parent?: UntypedFormGroup;
 
     constructor(
         @Optional() private readonly controlContainer: ControlContainer,
         @Optional() private readonly stepperComponent: StepperComponent,
-        private readonly fb: FormBuilder
+        private readonly fb: UntypedFormBuilder
     ) {}
 
     ngOnInit(): void {
-        this.parent = this.controlContainer?.control as FormGroup;
+        this.parent = this.controlContainer?.control as UntypedFormGroup;
         const fromParent = this.parent?.get('stepThree');
         if (!fromParent) {
             // change detection -- does not work with onpush
@@ -30,7 +35,7 @@ export class StepThreeComponent implements OnInit, CanDeactivateStepper {
                 this.parent?.addControl('stepThree', this.form)
             );
         } else {
-            this.form = fromParent as FormGroup;
+            this.form = fromParent as UntypedFormGroup;
         }
     }
 

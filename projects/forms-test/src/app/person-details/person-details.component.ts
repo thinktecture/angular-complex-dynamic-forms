@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
     selector: 'tt-person-details',
@@ -7,10 +7,10 @@ import { FormControl, FormGroup } from '@angular/forms';
     styleUrls: ['./person-details.component.scss'],
 })
 export class PersonDetailsComponent {
-    @Input() formGroup!: FormGroup;
+    @Input() formGroup!: UntypedFormGroup;
 
-    get ageCtrl(): FormControl | undefined {
+    get ageCtrl(): UntypedFormControl | undefined {
         const age = this.formGroup.get('age');
-        return age as FormControl;
+        return age as UntypedFormControl;
     }
 }

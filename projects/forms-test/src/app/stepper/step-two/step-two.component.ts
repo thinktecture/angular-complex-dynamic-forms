@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlContainer, FormArray, FormControl, FormGroup } from '@angular/forms';
+import {
+    ControlContainer,
+    UntypedFormArray,
+    UntypedFormControl,
+    UntypedFormGroup,
+} from '@angular/forms';
 import { CanDeactivateStepper } from '../../form-step.guard';
 
 @Component({
@@ -8,20 +13,22 @@ import { CanDeactivateStepper } from '../../form-step.guard';
     styleUrls: ['./step-two.component.scss'],
 })
 export class StepTwoComponent implements OnInit, CanDeactivateStepper {
-    form?: FormGroup;
+    form?: UntypedFormGroup;
 
-    get childrenArray(): FormControl[] {
-        return ((this.form?.get('stepTwo.children') as FormArray)?.controls ||
-            []) as FormControl[];
+    get childrenArray(): UntypedFormControl[] {
+        return ((this.form?.get('stepTwo.children') as UntypedFormArray)?.controls ||
+            []) as UntypedFormControl[];
     }
 
     constructor(private readonly controlContainer: ControlContainer) {}
 
     ngOnInit(): void {
-        this.form = this.controlContainer.control as FormGroup;
+        this.form = this.controlContainer.control as UntypedFormGroup;
     }
 
     addChild(): void {
-        (this.form?.get('stepTwo.children') as FormArray)?.push(new FormControl());
+        (this.form?.get('stepTwo.children') as UntypedFormArray)?.push(
+            new UntypedFormControl()
+        );
     }
 }

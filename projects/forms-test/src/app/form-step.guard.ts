@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import {
     ActivatedRouteSnapshot,
     CanActivate,
@@ -10,7 +10,7 @@ import {
 import { Observable } from 'rxjs';
 
 export interface CanDeactivateStepper {
-    form?: FormGroup;
+    form?: UntypedFormGroup;
 }
 
 @Injectable({

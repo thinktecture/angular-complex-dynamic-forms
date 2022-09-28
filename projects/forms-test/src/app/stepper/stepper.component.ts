@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
     AbstractControl,
-    FormBuilder,
-    FormControl,
-    FormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
+    UntypedFormGroup,
     Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { spouseNameValidator } from './stepper.validators';
 import { debounceTime } from 'rxjs/operators';
 
-export function createPersonFormGroup(fb: FormBuilder): FormGroup {
+export function createPersonFormGroup(fb: UntypedFormBuilder): UntypedFormGroup {
     return fb.group({
         firstName: [undefined, [Validators.required]],
         lastName: [undefined, [Validators.required]],
@@ -38,7 +38,7 @@ export class StepperComponent implements OnInit, OnDestroy {
     errors: any;
     private checkSubscription$ = Subscription.EMPTY;
 
-    constructor(private readonly fb: FormBuilder) {}
+    constructor(private readonly fb: UntypedFormBuilder) {}
 
     ngOnInit(): void {
         // demonstration purpose
@@ -54,10 +54,10 @@ export class StepperComponent implements OnInit, OnDestroy {
     // demonstration purpose
     // https://stackoverflow.com/a/60530162
     getFormErrors(form: AbstractControl): any {
-        if (form instanceof FormControl) {
+        if (form instanceof UntypedFormControl) {
             return form.errors;
         }
-        if (form instanceof FormGroup) {
+        if (form instanceof UntypedFormGroup) {
             const groupErrors = form.errors;
             const formErrors = groupErrors ? { ...groupErrors } : {};
             Object.keys(form.controls).forEach((key) => {
