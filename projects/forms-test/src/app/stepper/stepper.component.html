@@ -1,4 +1,4 @@
-<div class="container">
+<div class="form-container">
   <div class="steps">
     <a routerLink="./step1" class="step" routerLinkActive="activeStep">1</a>
     <a routerLink="./step2" class="step" routerLinkActive="activeStep">2</a>
@@ -14,18 +14,20 @@
 <hr>
 <pre>
   Valid: {{ form.valid }}
+  -----------------------
 
 
   Value:
+  -----------------------
   {{ form.value | json }}
+</pre>
 
-
-
+<pre>
   Form Errors
+  -----------------------
   {{ form.errors | json }}
 
-
-
   All errors (recursively)
+  -----------------------
   {{ errors | json }}
 </pre>
