@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
     AbstractControl,
+    FormBuilder,
     UntypedFormBuilder,
     UntypedFormControl,
     UntypedFormGroup,
@@ -24,21 +25,22 @@ export function createPersonFormGroup(fb: UntypedFormBuilder): UntypedFormGroup 
     styleUrls: ['./stepper.component.scss'],
 })
 export class StepperComponent implements OnInit, OnDestroy {
-    readonly form = this.fb.group(
+    readonly form = this.untypedFormBuilder.group(
         {
-            stepOne: createPersonFormGroup(this.fb),
-            stepTwo: this.fb.group({
-                spouse: createPersonFormGroup(this.fb),
-                children: this.fb.array([]),
+            stepOne: createPersonFormGroup(this.untypedFormBuilder),
+            stepTwo: this.untypedFormBuilder.group({
+                spouse: createPersonFormGroup(this.untypedFormBuilder),
+                children: this.untypedFormBuilder.array([]),
             }),
         },
         // TODO Group Validator to check names
         { validators: [spouseNameValidator] }
     );
+
     errors: any;
     private checkSubscription$ = Subscription.EMPTY;
 
-    constructor(private readonly fb: UntypedFormBuilder) {}
+    constructor(private readonly untypedFormBuilder: UntypedFormBuilder) {}
 
     ngOnInit(): void {
         // demonstration purpose

@@ -118,8 +118,7 @@ fieldset {
     gap: 0.5rem;
 }
 
-button,
-a.button {
+button, a.button {
     width: 100%;
     padding: 0.75rem 0.5rem;
     color: rgba(238, 242, 255, 1);
@@ -152,6 +151,10 @@ a.button {
     &.blue {
         --tw-bg-opacity: 1;
         background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+    }
+    &.orange {
+        --tw-bg-opacity: 1;
+        background-color: rgba(235, 99, 35, var(--tw-bg-opacity));
     }
 }
 

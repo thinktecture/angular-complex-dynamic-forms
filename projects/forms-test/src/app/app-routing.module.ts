@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormStepGuard } from './form-step.guard';
 import { PersonDetailsComponent } from './person-details/person-details.component';
+import { StepTypedComponent } from './stepper/step-typed/step-typed.component';
 import { StepOneComponent } from './stepper/step-one/step-one.component';
 import { StepThreeComponent } from './stepper/step-three/step-three.component';
 import { StepTwoComponent } from './stepper/step-two/step-two.component';
@@ -32,6 +33,12 @@ const routes: Routes = [
             },
             {
                 path: 'step3',
+                component: StepTypedComponent,
+                canActivate: [FormStepGuard], // optional
+                canDeactivate: [FormStepGuard], // optional
+            },
+            {
+                path: 'step4',
                 component: StepThreeComponent,
                 canActivate: [FormStepGuard], // optional
                 canDeactivate: [FormStepGuard], // optional

@@ -11,6 +11,7 @@ import { StepThreeComponent } from './stepper/step-three/step-three.component';
 import { StepTwoComponent } from './stepper/step-two/step-two.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
+import { StepTypedComponent } from './stepper/step-typed/step-typed.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { TemplateDrivenComponent } from './template-driven/template-driven.compo
         PersonDetailsComponent,
         StepThreeComponent,
         TemplateDrivenComponent,
+        StepTypedComponent,
     ],
     imports: [
         BrowserModule,

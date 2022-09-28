@@ -42,4 +42,8 @@ export class StepThreeComponent implements OnInit, CanDeactivateStepper {
     submit(): void {
         this.stepperComponent?.submit();
     }
+
+    reset() {
+        this.controlContainer.reset();
+    }
 }

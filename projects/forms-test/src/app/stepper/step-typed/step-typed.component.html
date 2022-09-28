@@ -1,0 +1,20 @@
+<div *ngIf="form" [formGroup]="form">
+  <div class="myCard">
+    <div class="header">
+      <h3>Step 3</h3>
+      <h4>Provide your wish</h4>
+      <fieldset>
+        <label>Util</label>
+        <input formControlName="util" type="text" />
+      </fieldset>
+      <fieldset>
+        <label>price</label>
+        <input formControlName="price" type="number" />
+      </fieldset>
+    </div>
+  </div>
+
+<div class="actions">
+  <a class="button gray" routerLink="../step1">back</a>
+  <a class="button blue" routerLink="../step4">next</a>
+</div>

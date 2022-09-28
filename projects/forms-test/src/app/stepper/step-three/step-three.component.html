@@ -15,7 +15,10 @@
     </fieldset>
   </div>
   <div class="actions">
-    <a class="button gray" routerLink="../step2">back</a>
+    <a class="button gray" routerLink="../step3">back</a>
     <button class="button green" (click)="submit()" [disabled]="parent?.valid">Submit</button>
+  </div>
+  <div class="actions">
+    <button class="button orange" (click)="reset()">Reset</button>
   </div>
 </form>
