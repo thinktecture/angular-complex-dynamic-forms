@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-template-driven',
@@ -11,7 +12,11 @@ export class TemplateDrivenComponent {
         city: '',
     };
 
-    submit() {
-        console.log('SUBMIT :)');
+    submit(form: NgForm) {
+        console.log('SUBMIT :)', form);
+    }
+
+    change($event: Event) {
+        console.log('FORM CHANGE', $event);
     }
 }

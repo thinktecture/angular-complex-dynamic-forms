@@ -7,10 +7,10 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
     styleUrls: ['./person-details.component.scss'],
 })
 export class PersonDetailsComponent {
-    @Input() formGroup!: UntypedFormGroup;
+    @Input() personGroup?: UntypedFormGroup;
 
     get ageCtrl(): UntypedFormControl | undefined {
-        const age = this.formGroup.get('age');
+        const age = this.personGroup?.get('age');
         return age as UntypedFormControl;
     }
 }

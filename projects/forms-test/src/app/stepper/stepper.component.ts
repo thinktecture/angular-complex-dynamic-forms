@@ -13,7 +13,7 @@ import { debounceTime } from 'rxjs/operators';
 
 export function createPersonFormGroup(fb: UntypedFormBuilder): UntypedFormGroup {
     return fb.group({
-        firstName: [undefined, [Validators.required]],
+        firstName: ['', [Validators.required]],
         lastName: [undefined, [Validators.required]],
         age: [undefined, [Validators.min(18)]], // Required min "age" but no input is allowed, too
     });
@@ -33,7 +33,6 @@ export class StepperComponent implements OnInit, OnDestroy {
                 children: this.untypedFormBuilder.array([]),
             }),
         },
-        // TODO Group Validator to check names
         { validators: [spouseNameValidator] }
     );
 

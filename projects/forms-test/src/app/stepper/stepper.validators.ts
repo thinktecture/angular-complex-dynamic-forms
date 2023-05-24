@@ -8,7 +8,7 @@ export function spouseNameValidator(control: AbstractControl): ValidationErrors 
 
     if (name && spouseName) {
         if (name !== spouseName) {
-            return { spouseName: 'Last names do not match' };
+            return { spouseName: 'Last names do not match', spouse: spouseName };
         }
     }
     return null;

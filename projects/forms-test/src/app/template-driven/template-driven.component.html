@@ -1,22 +1,51 @@
-<form #form="ngForm" (submit)="submit()">
+<form #form="ngForm" (submit)="submit(form)" (change)="change($event)">
   <div class="myCard">
     <div class="header">
-      <h3>Step 3</h3>
+      <h3>Template Driven Form</h3>
       <h4>Provide your address information</h4>
     </div>
 
     <fieldset class="field">
       <label>Street</label>
-      <input type="text" placeholder="Cherry Street No.5" autocomplete="disabled"[(ngModel)]="person.street" name="street" required/>
+      <input type="text" [(ngModel)]="person.street"
+             name="street"
+             required minlength="5"
+             placeholder="Foobar Street No.5" autocomplete="disabled"
+             #street="ngModel" />
+      <div class="error" *ngIf="street.touched && street.errors">
+        Street Errors {{street.errors | json}}
+      </div>
     </fieldset>
     <fieldset class="field">
       <label>City</label>
-      <input type="text" placeholder="Oberhausen" autocomplete="disabled" [(ngModel)]="person.city" name="city" />
+      <input type="text"
+             [(ngModel)]="person.city"
+             name="city"
+             placeholder="Oberhausen"
+             autocomplete="disabled" />
     </fieldset>
   </div>
 
-  <button>Submit</button>
+  <button class="blue">Submit</button>
+  <button class="orange" role="button" (click)="form.reset()">Reset</button>
 </form>
 
-Valid: {{ form.valid }}
-{{ person | json}}
+<div>
+
+
+  Valid: {{ form.valid }}
+
+  Person Object
+  <pre>
+  {{ person | json}}
+</pre>
+  Form Value
+  <pre>
+  {{ form.value | json}}
+</pre>
+
+  Form Errors
+  <pre>
+  {{ form.errors | json}}
+</pre>
+</div>

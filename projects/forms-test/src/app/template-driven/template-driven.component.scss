@@ -1,1 +1,7 @@
-
+:host {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: start;
+  padding: 3rem;
+}

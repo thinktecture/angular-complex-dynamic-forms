@@ -13,6 +13,9 @@ export class StepTypedComponent {
         price: [666, [Validators.required, Validators.min(1)]],
     });
 
+    // TODO Inject parent component
+    // TODO Add local form to parent form
+    // TODO Use different FormBuilder's
     constructor(
         private readonly fb: FormBuilder,
         private readonly stepperComponent: StepperComponent
